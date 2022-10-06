@@ -4,6 +4,7 @@ import bodyParser from "body-parser"
 import mongoose from "mongoose";
 import ProductRouter from "./src/Router/Products.js";
 import LoginRouter from "./src/Router/Login.js";
+import NewsRouter from "./src/Router/News.js";
 
 const app = express()
 const URL =   "mongodb+srv://Ngiad:Ngiad001@cluster0.2ts8aja.mongodb.net"
@@ -14,6 +15,7 @@ const PORT = 7000
 
 app.use("/products",ProductRouter)
 app.use("/login",LoginRouter)
+app.use("/news",NewsRouter)
 
 mongoose.connect(URL,{useNewUrlParser : true})
 .then(() =>{

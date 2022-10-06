@@ -8,7 +8,11 @@ const Shema = new mongoose.Schema({
     passwork : {
         type : String,
         required : true
+    },
+    decentralization : {
+        type : String,
+        default : "User"
     }
-})
+},{ timestamps : true})
 
 export const AdminModel = mongoose.model("admin",Shema)
