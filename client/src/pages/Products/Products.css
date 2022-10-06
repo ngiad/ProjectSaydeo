@@ -1,0 +1,37 @@
+
+.Products{
+    margin: 24px 0;
+}
+
+.Products > .contener{
+    display: flex;
+    padding: 0 100px;
+    margin-top: 24px;
+}
+
+.Products > .contener >.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+  }
+.Products > .contener > .grid-container > .grid-item {
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    font-size: 16px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    border-radius: 24px;
+  }
+
+  .Products > .contener > .grid-container > .grid-item >img{
+    width: 230px;
+    flex: 4;
+  }
+  .Products > .contener > .grid-container > .grid-item > p{
+    margin: 12px 0;
+    flex: 1;
+  }
