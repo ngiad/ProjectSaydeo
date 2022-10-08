@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import http from '../../utils/request'
 import "./AdminNews.css"
 import ListNews from './ListNews'
@@ -14,6 +14,21 @@ const AdminNews = () => {
   })
 
   const [AllNews,setAllNews] = useState([])
+
+  const getNews = async () =>{
+    try {
+      const res = await http.get("news/getnews")
+      setAllNews(res.data)
+    } catch (error) {
+      alert("Lỗi vui lòng thử lại Hoặc liên hệ hỗ trợ")
+    }
+  }
+
+  useEffect(() =>{
+    getNews()
+  },[])
+
+  
   const handleCreateNews = async(e) =>{
     e.preventDefault()
     try {
@@ -31,7 +46,6 @@ const AdminNews = () => {
       alert("Lỗi vui lòng thử lại Hoặc liên hệ hỗ trợ")
     }
   }
-  console.log(AllNews)
   return (
     <div className='mainAdminNews'>
       <div className='newNews'>
@@ -52,11 +66,11 @@ const AdminNews = () => {
           <button>Submit</button>
         </form>
       </div>
-      <div>
         <h1>Danh sách bài viết</h1>
+      <div className='listNewsAdmin'>
         {
           AllNews.map((item,index) => {
-            return <ListNews key={index} item={item} />
+            return <ListNews key={index} item={item} setAllNews={setAllNews} />
           })
         }
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import http from '../../utils/request';
 
-const Product = ({item,handleDeleteProduct,handleCheckUpdate,setProduct,index}) => {
+const Product = ({item,handleDeleteProduct,handleCheckUpdate,setProduct}) => {
     const [updateProduct,setUpdateProduct] = useState(item)
 
   const handleUpdateProduct = async() =>{
