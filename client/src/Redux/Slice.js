@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 
 export const SearchSliceRedux = createSlice({
     name: "search",
@@ -10,6 +10,6 @@ export const SearchSliceRedux = createSlice({
     }
 })
 
-export const {update} = SearchSliceRedux.actions
+export const { update } = SearchSliceRedux.actions
 
 export default SearchSliceRedux.reducer

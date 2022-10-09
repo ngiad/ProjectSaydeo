@@ -20,7 +20,7 @@ const Header = () => {
     e.preventDefault()
     Dispatch(update(inputValue))
     const result = inputValue.split(' ').join('').toLowerCase()
-    Navigate(`/search/title=${result}`)
+    Navigate(`/search?title=${result}`)
     setInputvalue("")
   }
   const handleChange = (e) => {

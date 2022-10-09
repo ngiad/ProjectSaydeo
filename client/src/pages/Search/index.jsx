@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import http from '../../utils/request';
 import News from '../Home/News';
 import "./Search.css"
+import ProductSearch from './ProductSearch';
+
 
 
 const Search = () => {
@@ -26,7 +28,11 @@ const Search = () => {
         <div className='NavNavigate'><NavNavigate title={"Search"} link={"/search"}/></div>
         <div className="products">
           {
-            ProducSearch.length === 0 && <h1 className='nullProduct'>Không có sản phẩm bạn đang tìm kiếm !</h1>
+            ProducSearch.length === 0 
+            ? <h1 className='nullProduct'>Không có sản phẩm bạn đang tìm kiếm !</h1> 
+            : ProducSearch.map((item,index) =>{
+              return <ProductSearch key={index} item={item}/>
+            })
           }
         </div>
         <div className='news'>
