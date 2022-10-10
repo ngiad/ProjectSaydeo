@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
+import LoadingHomeApp from './Components/LoadingHomeApp.jsx';
 import { AuthContext } from './contexts/AuthContext';
 import Admin from './layout/Admin/Admin';
-import Front from './layout/Front/Front';
+
+const Front = React.lazy(() => import("./layout/Front/Front"))
 const About =  React.lazy(() => import('./pages/About'))
 const AdminHomePage =  React.lazy(() => import('./pages/AdminHomePage'))
 const AdminNews =  React.lazy(() => import('./pages/AdminNews'))
@@ -17,6 +19,7 @@ const NotFound =  React.lazy(() => import('./pages/NotFound'))
 const Product =  React.lazy(() => import('./pages/Product'))
 const Products =  React.lazy(() => import('./pages/Products'))
 const Search =  React.lazy(() => import('./pages/Search'))
+const Cart = React.lazy(() => import('./pages/Cart'))
 
 
 function App() {
@@ -25,7 +28,7 @@ function App() {
   console.log(LoginSuccect)
   return (
         <Routes>
-            <Route path='/' element={<Front />}>
+            <Route path='/' element={<React.Suspense fallback={<LoadingHomeApp />}><Front /></React.Suspense>}>
               <Route index element={<Home />} />
               <Route index path="about" element={<About />} />
               <Route index path="products" element={<Products />} />
@@ -34,6 +37,7 @@ function App() {
               <Route index path="contact" element={<Contact />} />
               <Route index path="/:search" element={<Search />} />
               <Route index path="products/:id" element={<Product />} />
+              <Route index path="cart" element={<Cart />} />
               <Route path="*" element={<NotFound />} />
             </Route>
             <Route index path="login" element={<LoginAdmin />} />

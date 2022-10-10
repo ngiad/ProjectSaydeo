@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Header.css'
 import vi from "../../img/vi.png"
 import en from "../../img/en.png"
@@ -8,13 +8,17 @@ import { GoLocation } from 'react-icons/go';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { BsSearch } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { update } from '../../Redux/Slice'
 
 const Header = () => {
   const Dispatch = useDispatch()
   const Navigate = useNavigate()
+
+  const Products =  useSelector((state) => state.Cart)
   const [inputValue,setInputvalue] = useState("")
+
+  const [amount,setAmount] = useState(0)
   // const InputSearch = useSelector((state) => state.Search)
   const HandleSearch = (e)  =>{
     e.preventDefault()
@@ -26,6 +30,12 @@ const Header = () => {
   const handleChange = (e) => {
     setInputvalue(e.target.value)
   }
+
+  useEffect(() =>{
+    if(Products !== undefined){
+      setAmount(Products.reduce((total,product) =>total + product.amount,0))
+    }
+  },[Products])
   return (
     <div>
       <div className="wapNav">
@@ -47,7 +57,10 @@ const Header = () => {
             <input placeholder='   Nhập từ khóa tìm kiếm...' type="text" value={inputValue}  onChange={handleChange}/>
             <button><BsSearch /></button>
           </form>
-          <button><BsFillCartCheckFill/>   Giỏ Hàng</button>
+          <div className='DivbtnCart'>
+            {amount === 0 ? null : <span className='amountCart'>{amount}</span>}
+            <button className='btnCart' onClick={() => Navigate("cart")}><BsFillCartCheckFill/>   Giỏ Hàng</button>
+          </div>
       </div>
       <div className="wapMenu">
         <ul>

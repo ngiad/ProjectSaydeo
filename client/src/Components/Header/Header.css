@@ -70,12 +70,16 @@
     color: #fff;
     border: #df2228;
     border-radius: 4px;
+    cursor: pointer;
 }
 .boxNav > img{
     width: 270px;
 }
 
-.boxNav > button{
+.DivbtnCart{
+    position: relative;
+}
+.btnCart{
     font-size: 18px;
     padding: 8px 20px;
     font-weight: 300;
@@ -84,6 +88,21 @@
     color: white;  
     border: #fe9705;
 }
+
+.amountCart{
+    position: absolute;
+    right: 0;
+    top: -4px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: #df2228;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+
 .wapMenu{
     background-color: #df2228;
     display: flex;
