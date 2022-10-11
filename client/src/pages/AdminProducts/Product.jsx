@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import http from "../../utils/request";
 
 const Product = ({
+  setRefesh,
+  refesh,
   item,
   handleCheckUpdate,
   handleDeleteProduct,
   setProduct,
 }) => {
-  const [updateProduct, setUpdateProduct] = useState(item);
+  const [updateProduct, setUpdateProduct] = useState({});
 
   const handleUpdateProduct = async () => {
     const update = { ...updateProduct, update: false };
@@ -31,7 +33,7 @@ const Product = ({
           className="UpdateProductBtn"
           onClick={() => {
             handleCheckUpdate(item);
-            // setUpdateProduct(item)
+            setUpdateProduct(item)
           }}
         >
           {item.update ? "Giữ Nguyên" : "Update sản phẩm"}

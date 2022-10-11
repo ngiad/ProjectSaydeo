@@ -13,7 +13,7 @@ const ProductCart = ({ product, STT }) => {
 
   const handleDeleteProductCard = () => {
     Dispatch(RemoveProduct(product));
-    toast.success("Xóa sản phẩm")
+    toast.success("Xóa sản phẩm");
   };
   return (
     <tr className="contentTable">

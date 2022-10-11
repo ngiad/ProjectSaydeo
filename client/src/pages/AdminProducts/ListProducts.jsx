@@ -1,48 +1,58 @@
-import React, { useContext } from 'react'
-import "./AdminProducts.css"
-import http from '../../utils/request'
-import { AuthContext } from '../../contexts/AuthContext'
-import ProductCompunent from './Product'
+import React, { useContext } from "react";
+import "./AdminProducts.css";
+import http from "../../utils/request";
+import { AuthContext } from "../../contexts/AuthContext";
+import ProductCompunent from "./Product";
 
-const ListProducts = ({Products,setProduct}) => {
-  const { user } = useContext(AuthContext)
+const ListProducts = ({ Products, setProduct,setRefesh,refesh }) => {
+  const { user } = useContext(AuthContext);
 
-  const handleCheckUpdate = async(item) =>{
-    const CheckUpdateProduct = {...item,update:!item.update}
+  const handleCheckUpdate = async (item) => {
+    const CheckUpdateProduct = { ...item, update: !item.update };
     try {
-      const res =  await http.post("products/update",CheckUpdateProduct)
-      setProduct(res.data)
+      const res = await http.post("products/update", CheckUpdateProduct);
+      setProduct(res.data);
+      setRefesh(!refesh)
     } catch (error) {
-      alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ")
+      alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
-  }
-  const handleDeleteProduct = async(item) => {
+  };
+  const handleDeleteProduct = async (item) => {
     try {
-      const res = await http.delete("products/delete",{
-          headers: {
-            token: user.token
-          },
-          data: item   
-      })
-      setProduct(res.data)
+      const res = await http.delete("products/delete", {
+        headers: {
+          token: user.token,
+        },
+        data: item,
+      });
+      setProduct(res.data);
+      setRefesh(!refesh)
     } catch (error) {
-      alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ")
+      alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
-  } 
-
+  };
 
   return (
-    <div className='MainListProductsAdmin'>
-    <h1>Danh sách sản phẩm</h1>
-    <div className='Products'>
-        {
-          Products.map((item,index) => {
-            return <ProductCompunent index={index} key={index} item={item} handleCheckUpdate={handleCheckUpdate} handleDeleteProduct={handleDeleteProduct} setProduct={setProduct} />
-            })
-        }
-        </div>
+    <div className="MainListProductsAdmin">
+      <h1>Danh sách sản phẩm</h1>
+      <div className="Products">
+        {Products.map((item, index) => {
+          return (
+            <ProductCompunent
+              refesh={refesh}
+              setRefesh={setRefesh}
+              index={index}
+              key={index}
+              item={item}
+              handleCheckUpdate={handleCheckUpdate}
+              handleDeleteProduct={handleDeleteProduct}
+              setProduct={setProduct}
+            />
+          );
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ListProducts
+export default ListProducts;
