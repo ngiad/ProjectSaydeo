@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 import HotList from '../../Components/HotList'
 import NavNavigate from '../../Components/NavNavigate'
 import "./Products.css"
@@ -16,8 +17,7 @@ const Products = () => {
             const dataProducts = await res.json()
             getDataProducts(dataProducts)
         } catch (error) {
-            console.log("đây là error",error)
-            alert("Hộ thống đang bảo trì")
+            toast.warning("Hộ thống đang bảo trì")
         }
     }
     useEffect(() =>{
@@ -43,6 +43,7 @@ const Products = () => {
                     <HotList />
                 </div>
         </div>
+        <ToastContainer />
     </div>
   )
 }

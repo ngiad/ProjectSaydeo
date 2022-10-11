@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import NavNavigate from "../../Components/NavNavigate";
 import { AddProduct } from "../../Redux/CartSlice";
 import http from "../../utils/request";
@@ -17,12 +18,12 @@ const Product = () => {
       const res = await http.get("products/search/" + id);
       getDataProduct(res.data);
     } catch (error) {
-      console.log("đây là error", error);
-      alert("Hệ thống đang bảo trì");
+      toast.warning("Đã sẩy ra lỗi vui long liên hệ hỗ trợ")
     }
   };
   const AddProductToCart = () => {
     DisPatch(AddProduct({ ...DataProduct, amount: 1,priceByQuantity : DataProduct.price }));
+    toast.success("Đã thêm sản phẩm")
   };
   useEffect(() => {
     getDataProductFunction();
@@ -64,6 +65,7 @@ const Product = () => {
         </div>
       </div>
       <News />
+      <ToastContainer />
     </div>
   );
 };

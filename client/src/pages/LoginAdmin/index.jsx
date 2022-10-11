@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 import { AuthContext } from '../../contexts/AuthContext'
 import http from '../../utils/request'
 import "./Login.css"
@@ -22,7 +23,7 @@ const LoginAdmin = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault()
     if(!user.username || !user.passwork){
-      alert("Nhập đầy đủ thông tin !")
+      toast.warning("Nhập đầy đủ thông tin !")
       return
     }
     try {
@@ -31,7 +32,7 @@ const LoginAdmin = () => {
       setLogin()
       Navigate("/admin")
     } catch (error) {
-      alert("server disconnect ...")
+      toast.warning("server disconnect ...")
     }
   }
 
@@ -47,6 +48,7 @@ const LoginAdmin = () => {
         </form>
         <button onClick={() => Navigate(-1)}>Back</button>
       </div>
+      <ToastContainer />
     </div>
   )
 }

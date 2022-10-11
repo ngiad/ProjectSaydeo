@@ -1,11 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify'
 import NavNavigate from '../../Components/NavNavigate'
 import "./Cart.css"
 import ProductCart from './ProductCart'
 
 const Cart = () => {
   const CartProduct = useSelector((state) => state.Cart)
+
+  const handleOder = () => {
+    toast.success("Đặt hàng thành công")
+  }
   return (
     <div className='cart'>
       <div className='NavNavigate'><NavNavigate title={"Giỏ hàng"} link={"/cart"}/></div>
@@ -29,9 +34,10 @@ const Cart = () => {
         </div>
         <div className='pay'>
             <h2>Tổng giá : <span> {CartProduct.reduce((total,product)=>total + product.priceByQuantity ,0)} đ</span></h2>
-            <button>Đặt hàng</button>
+            <button onClick={handleOder}>Đặt hàng</button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

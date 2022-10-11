@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import LoadingHomeApp from './Components/LoadingHomeApp.jsx';
 import { AuthContext } from './contexts/AuthContext';

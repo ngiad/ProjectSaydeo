@@ -6,6 +6,7 @@ import http from '../../utils/request';
 import News from '../Home/News';
 import "./Search.css"
 import ProductSearch from './ProductSearch';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -17,7 +18,7 @@ const Search = () => {
       const res = await http.get(`products/search?title=`+search)
       setProducSearch(res.data);
     } catch (error) {
-      alert(error)
+      toast.warning(error)
     }
   }
   useEffect(() =>{
@@ -38,6 +39,7 @@ const Search = () => {
         <div className='news'>
           <News />
         </div>
+        <ToastContainer />
     </div>
   )
 }

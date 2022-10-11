@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 import http from '../../utils/request'
 import "./AdminNews.css"
 import ListNews from './ListNews'
@@ -20,7 +21,7 @@ const AdminNews = () => {
       const res = await http.get("news/getnews")
       setAllNews(res.data)
     } catch (error) {
-      alert("Lỗi vui lòng thử lại Hoặc liên hệ hỗ trợ")
+      toast.warning("Đã sẩy ra lỗi")
     }
   }
 
@@ -43,7 +44,7 @@ const AdminNews = () => {
           link : ""
         })
     } catch (error) {
-      alert("Lỗi vui lòng thử lại Hoặc liên hệ hỗ trợ")
+      toast.warning("Lỗi vui lòng thử lại Hoặc liên hệ hỗ trợ")
     }
   }
   return (
@@ -74,6 +75,7 @@ const AdminNews = () => {
           })
         }
       </div>
+      <ToastContainer />
     </div>
   )
 }
