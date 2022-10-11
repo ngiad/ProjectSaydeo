@@ -3,28 +3,25 @@ import { useEffect } from "react";
 import http from "../../utils/request";
 
 const Product = ({
-  handleReload,
+  setProduct,
   item,
   handleCheckUpdate,
   handleDeleteProduct,
-  
 }) => {
-  const [updateProduct, setUpdateProduct] = useState(item); // đọc lại useState nhé, do thằng này cache đó E biết do thằng này ạ :v hôm trước E hỏi thì A bảo chia ra nó k bị đó :v nhma hôm nay nó lại dính đòn :v
-  // chia ra nma lúc có props data mới thì e phải set lại nữa
-  // useEffect(() => {setUpdateProduct(item)}, [item]) ; kiểu như này à vâng ạ E hiểu hơn r a :v sắp 
+  const [updateProduct, setUpdateProduct] = useState(item); 
 
+  useEffect(() =>{
+    setUpdateProduct(item)
+  },[item])
   const handleUpdateProduct = async () => {
     const update = { ...updateProduct, update: false };
     try {
       const res = await http.post("products/update", update);
-      // setProduct(res.data);
-      handleReload()
+      setProduct(res.data);
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
   };
-console.log("item::", item);
-
   return (
     <div>
       <div className="Product">

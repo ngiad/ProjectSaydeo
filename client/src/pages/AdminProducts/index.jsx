@@ -11,7 +11,6 @@ const AdminProducts = () => {
     describe: "",
   });
   const [Products, setProduct] = useState([]);
-  const [refesh,setRefesh] = useState(true)
 
   const getDataProducts = async () => {
     try {
@@ -24,7 +23,7 @@ const AdminProducts = () => {
 
   useEffect(() => {
     getDataProducts();
-  }, [refesh]);
+  }, []);
 
   const createProduct = async (Product) => {
     try {
@@ -48,7 +47,6 @@ const AdminProducts = () => {
     }
   };
 
-  const handleReload = () => setRefesh(!refesh);
   return (
     <div className="mainAdminProducts">
       <div className="NewProduct">
@@ -97,9 +95,7 @@ const AdminProducts = () => {
           <button>Submit</button>
         </form>
       </div>
-      <ListProducts handleReload={handleReload} Products={Products}
-
-// k can set lại products ở đây, call lại api là đc à vâng E hiue
+      <ListProducts setProduct={setProduct} Products={Products}
  />
     </div>
   );

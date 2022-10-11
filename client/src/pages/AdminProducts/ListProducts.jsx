@@ -4,14 +4,14 @@ import http from "../../utils/request";
 import { AuthContext } from "../../contexts/AuthContext";
 import ProductCompunent from "./Product";
 
-const ListProducts = ({ Products,handleReload }) => {
+const ListProducts = ({ Products,setProduct }) => {
   const { user } = useContext(AuthContext);
 
   const handleCheckUpdate = async (item) => {
     const CheckUpdateProduct = { ...item, update: !item.update };
     try {
       const res = await http.post("products/update", CheckUpdateProduct);
-      handleReload()
+      setProduct(res.data)
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
@@ -25,12 +25,11 @@ const ListProducts = ({ Products,handleReload }) => {
         },
         data: item,
       });
-      handleReload()
+      setProduct(res.data)
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
   };
-console.log("Products::", Products);
   return (
     <div className="MainListProductsAdmin">
       <h1>Danh sách sản phẩm</h1>
@@ -38,7 +37,7 @@ console.log("Products::", Products);
         {Products.map((item, index) => {
           return (
             <ProductCompunent
-             handleReload={handleReload}
+              setProduct={setProduct}
               index={index}
               key={index}
               item={item}
