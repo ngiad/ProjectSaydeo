@@ -16,6 +16,7 @@ const Product = ({
     try {
       const res = await http.post("products/update", update);
       setProduct(res.data);
+      setRefesh(!refesh)
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
