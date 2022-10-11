@@ -30,6 +30,7 @@ const LoginAdmin = () => {
       const res = await http.post("login",user)
       login({token : res.data.token});
       setLogin()
+      toast.success("Login thành công")
       Navigate("/admin")
     } catch (error) {
       toast.warning("server disconnect ...")
@@ -39,6 +40,7 @@ const LoginAdmin = () => {
 
   return (
     <div className='MainLogin'>
+    <ToastContainer/>
       <div>
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
@@ -48,7 +50,6 @@ const LoginAdmin = () => {
         </form>
         <button onClick={() => Navigate(-1)}>Back</button>
       </div>
-      <ToastContainer />
     </div>
   )
 }

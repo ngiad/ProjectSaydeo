@@ -23,7 +23,7 @@ const AdminProducts = () => {
 
   useEffect(() => {
     getDataProducts()
-  },[])
+  },[NewProduct])
   const createProduct = async(Product) =>{
     try {
       const res = await http.post("products/create",Product)
