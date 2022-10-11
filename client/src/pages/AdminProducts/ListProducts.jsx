@@ -4,19 +4,19 @@ import http from "../../utils/request";
 import { AuthContext } from "../../contexts/AuthContext";
 import ProductCompunent from "./Product";
 
-const ListProducts = ({ Products, setProduct,setRefesh,refesh }) => {
+const ListProducts = ({ Products,handleReload }) => {
   const { user } = useContext(AuthContext);
 
   const handleCheckUpdate = async (item) => {
     const CheckUpdateProduct = { ...item, update: !item.update };
     try {
       const res = await http.post("products/update", CheckUpdateProduct);
-      setProduct(res.data);
-      setRefesh(!refesh)
+      handleReload()
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
   };
+
   const handleDeleteProduct = async (item) => {
     try {
       const res = await http.delete("products/delete", {
@@ -25,13 +25,12 @@ const ListProducts = ({ Products, setProduct,setRefesh,refesh }) => {
         },
         data: item,
       });
-      setProduct(res.data);
-      setRefesh(!refesh)
+      handleReload()
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
   };
-
+console.log("Products::", Products);
   return (
     <div className="MainListProductsAdmin">
       <h1>Danh sách sản phẩm</h1>
@@ -39,14 +38,12 @@ const ListProducts = ({ Products, setProduct,setRefesh,refesh }) => {
         {Products.map((item, index) => {
           return (
             <ProductCompunent
-              refesh={refesh}
-              setRefesh={setRefesh}
+             handleReload={handleReload}
               index={index}
               key={index}
               item={item}
               handleCheckUpdate={handleCheckUpdate}
               handleDeleteProduct={handleDeleteProduct}
-              setProduct={setProduct}
             />
           );
         })}

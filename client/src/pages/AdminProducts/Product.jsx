@@ -1,26 +1,29 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import http from "../../utils/request";
 
 const Product = ({
-  setRefesh,
-  refesh,
+  handleReload,
   item,
   handleCheckUpdate,
   handleDeleteProduct,
-  setProduct,
+  
 }) => {
-  const [updateProduct, setUpdateProduct] = useState({});
+  const [updateProduct, setUpdateProduct] = useState(item); // đọc lại useState nhé, do thằng này cache đó E biết do thằng này ạ :v hôm trước E hỏi thì A bảo chia ra nó k bị đó :v nhma hôm nay nó lại dính đòn :v
+  // chia ra nma lúc có props data mới thì e phải set lại nữa
+  // useEffect(() => {setUpdateProduct(item)}, [item]) ; kiểu như này à vâng ạ E hiểu hơn r a :v sắp 
 
   const handleUpdateProduct = async () => {
     const update = { ...updateProduct, update: false };
     try {
       const res = await http.post("products/update", update);
-      setProduct(res.data);
-      setRefesh(!refesh)
+      // setProduct(res.data);
+      handleReload()
     } catch (error) {
       alert("lỖI HỆ THÔNG VUI LÒNG LIÊN HỆ HỖ TRỢ");
     }
   };
+console.log("item::", item);
 
   return (
     <div>
@@ -34,7 +37,7 @@ const Product = ({
           className="UpdateProductBtn"
           onClick={() => {
             handleCheckUpdate(item);
-            setUpdateProduct(item)
+            // setUpdateProduct(item)
           }}
         >
           {item.update ? "Giữ Nguyên" : "Update sản phẩm"}
@@ -57,9 +60,9 @@ const Product = ({
               <label htmlFor="#title">Tên sản phẩm</label>
               <input
                 type="text"
-                value={updateProduct.title}
+                defaultValue={item.title}
                 onChange={(e) =>
-                  setUpdateProduct({ ...updateProduct, title: e.target.value })
+                  setUpdateProduct({ ...item, title: e.target.value })
                 }
                 id="title"
                 placeholder="   Nhập tên sản phẩm"
@@ -67,10 +70,10 @@ const Product = ({
               <label htmlFor="#price">Giá sản phẩm</label>
               <input
                 type="text"
-                value={updateProduct.price}
+                defaultValue={item.price}
                 onChange={(e) =>
                   setUpdateProduct({
-                    ...updateProduct,
+                    ...item,
                     price: Number(e.target.value),
                   })
                 }
@@ -80,9 +83,9 @@ const Product = ({
               <label htmlFor="#img">Ảnh minh họa sản phẩm</label>
               <input
                 type="text"
-                value={updateProduct.img}
+                defaultValue={item.img}
                 onChange={(e) =>
-                  setUpdateProduct({ ...updateProduct, img: e.target.value })
+                  setUpdateProduct({ ...item, img: e.target.value })
                 }
                 id="img"
                 placeholder="   Nhập Ảnh minh họa sản phẩm"
@@ -90,10 +93,10 @@ const Product = ({
               <label htmlFor="#describe">Mô tả sản phẩm</label>
               <input
                 type="text"
-                value={updateProduct.describe}
+                defaultValue={item.describe}
                 onChange={(e) =>
                   setUpdateProduct({
-                    ...updateProduct,
+                    ...item,
                     describe: e.target.value,
                   })
                 }

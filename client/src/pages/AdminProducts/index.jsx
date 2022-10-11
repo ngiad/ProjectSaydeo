@@ -25,6 +25,7 @@ const AdminProducts = () => {
   useEffect(() => {
     getDataProducts();
   }, [refesh]);
+
   const createProduct = async (Product) => {
     try {
       const res = await http.post("products/create", Product);
@@ -46,6 +47,8 @@ const AdminProducts = () => {
       });
     }
   };
+
+  const handleReload = () => setRefesh(!refesh);
   return (
     <div className="mainAdminProducts">
       <div className="NewProduct">
@@ -94,7 +97,10 @@ const AdminProducts = () => {
           <button>Submit</button>
         </form>
       </div>
-      <ListProducts refesh={refesh} setRefesh={setRefesh} Products={Products} setProduct={setProduct} />
+      <ListProducts handleReload={handleReload} Products={Products}
+
+// k can set lại products ở đây, call lại api là đc à vâng E hiue
+ />
     </div>
   );
 };
