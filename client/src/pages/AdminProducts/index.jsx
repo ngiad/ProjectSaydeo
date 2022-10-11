@@ -23,7 +23,7 @@ const AdminProducts = () => {
 
   useEffect(() => {
     getDataProducts()
-  },[NewProduct])
+  },[Products])
   const createProduct = async(Product) =>{
     try {
       const res = await http.post("products/create",Product)
@@ -45,6 +45,7 @@ const AdminProducts = () => {
       })
     }
   }
+  console.log("re-render");
   return (
     <div className='mainAdminProducts'>
       <div className='NewProduct'>

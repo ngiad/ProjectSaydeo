@@ -31,7 +31,7 @@ const Product = ({
           className="UpdateProductBtn"
           onClick={() => {
             handleCheckUpdate(item);
-            setUpdateProduct(item)
+            // setUpdateProduct(item)
           }}
         >
           {item.update ? "Giữ Nguyên" : "Update sản phẩm"}
