@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import NavNavigate from '../../Components/NavNavigate'
 import "./Cart.css"
 import ProductCart from './ProductCart'
+import TableOder from './TableOder'
 
 const Cart = () => {
   const CartProduct = useSelector((state) => state.Cart)
 
+  const [checkOder,setCheckOder] = useState(false)
+
+
+  const handleOderCheck =() =>{
+    setCheckOder(!checkOder)
+  }
   const handleOder = () => {
-    toast.success("Đặt hàng thành công")
+      toast.success("Đặt hàng thành công")
   }
   return (
     <div className='cart'>
@@ -34,10 +41,12 @@ const Cart = () => {
         </div>
         <div className='pay'>
             <h2>Tổng giá : <span> {CartProduct.reduce((total,product)=>total + product.priceByQuantity ,0)} đ</span></h2>
-            <button onClick={handleOder}>Đặt hàng</button>
+            <button onClick={() => setCheckOder(!checkOder)}>Đặt hàng</button>
         </div>
       </div>
-      <ToastContainer />
+      {
+        checkOder && <TableOder handleOder={handleOder} CartProduct={CartProduct} handleOderCheck={handleOderCheck}  />
+      }
     </div>
   )
 }

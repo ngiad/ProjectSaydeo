@@ -36,6 +36,7 @@ const Header = () => {
       setAmount(Products.reduce((total,product) =>total + product.amount,0))
     }
   },[Products])
+  
   return (
     <div>
       <div className="wapNav">

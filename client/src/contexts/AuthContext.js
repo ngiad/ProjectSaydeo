@@ -21,6 +21,7 @@ const AuthProvider = ({children}) =>{
         LoginSuccect,
         setLogin
     }
+    console.log("re-render")
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>
 }

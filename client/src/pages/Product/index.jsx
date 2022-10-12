@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import NavNavigate from "../../Components/NavNavigate";
 import { AddProduct } from "../../Redux/CartSlice";
 import http from "../../utils/request";
@@ -65,7 +65,6 @@ const Product = () => {
         </div>
       </div>
       <News />
-      <ToastContainer />
     </div>
   );
 };

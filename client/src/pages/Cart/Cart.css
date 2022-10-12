@@ -5,6 +5,7 @@
 .ContenerCart{
     width: 1140px;
     margin: 0 auto;
+    margin-bottom: 140px;
 }
 
 .contentCart{
@@ -85,3 +86,83 @@
   .pay h2 span{
     color: red;
   }
+
+ .TableOder{
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #ccc;
+    padding: 24px;
+    width: 1140px;
+
+ } 
+
+ .TableOder  form{
+  display: flex;
+  flex-direction: column;
+ }
+ .TableOder .Contener{
+  display: flex;
+ } 
+ .TableOder  form label{
+  margin: 12px 0;
+ }
+ .TableOder  form input{
+  width: 600px;
+  padding: 12px;
+ }
+ .ListProductCartOder{
+  display: flex;
+  flex-wrap: wrap;
+ }
+ .itemCardOder{
+  margin: 12px;
+ }
+ .itemCardOder img{
+    width: 100px;
+    border-radius: 4px;
+ }
+
+ .Xoder{
+  position: absolute;
+  top: 0;
+  right: 2px;
+  font-size: 24px;
+  color: red;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+ }
+
+ .price{
+  color: rgb(224, 39, 39);
+ }
+ .itemCardOder h4{
+  text-transform: uppercase;
+ }
+ .right{
+  margin-left: 12px;
+ }
+ .btnPay{
+    background: #8cca46;
+    padding: 7px 10px;
+    border-radius: 4px;
+    color: #fff;
+    margin-left: 38px;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 65%;
+    border: none;
+ }
+
+.SelectPay > #cod{
+  width: 50px;
+  padding: 12px;
+}
+
+#bank{
+  width: 50px;
+  padding: 12px;
+}

@@ -13,15 +13,19 @@ const Schema = new mongoose.Schema({
         type : String,
         required : true
     },
-    buy :  [{name: String, price: Number}],
+    buy :  [{title: String, price: Number,amount:Number}],
     messenger : {
         type : String,
         default : "Không có yêu cần gì"
     },
     checkOder : {
         type :Boolean,
+        default : false
+    },
+    SelectPay :{
+        type : String,
         required : true
     }
-})
+},{timestamps : true})
 
 export const OderModel = mongoose.model("oder",Schema)

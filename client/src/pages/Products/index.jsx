@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import HotList from '../../Components/HotList'
 import NavNavigate from '../../Components/NavNavigate'
 import "./Products.css"
@@ -43,7 +43,6 @@ const Products = () => {
                     <HotList />
                 </div>
         </div>
-        <ToastContainer />
     </div>
   )
 }

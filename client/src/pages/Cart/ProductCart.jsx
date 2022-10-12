@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { RemoveProduct, UpdateProduct } from "../../Redux/CartSlice";
 import "./Cart.css";
 
@@ -36,7 +36,6 @@ const ProductCart = ({ product, STT }) => {
           Xóa
         </button>
       </td>
-      <ToastContainer />
     </tr>
   );
 };

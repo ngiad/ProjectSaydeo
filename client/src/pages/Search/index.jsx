@@ -6,7 +6,7 @@ import http from '../../utils/request';
 import News from '../Home/News';
 import "./Search.css"
 import ProductSearch from './ProductSearch';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 
@@ -39,7 +39,6 @@ const Search = () => {
         <div className='news'>
           <News />
         </div>
-        <ToastContainer />
     </div>
   )
 }

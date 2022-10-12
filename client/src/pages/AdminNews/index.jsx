@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import http from '../../utils/request'
 import "./AdminNews.css"
 import ListNews from './ListNews'
@@ -75,7 +75,6 @@ const AdminNews = () => {
           })
         }
       </div>
-      <ToastContainer />
     </div>
   )
 }

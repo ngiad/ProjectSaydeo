@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -25,8 +25,7 @@ const Cart = React.lazy(() => import('./pages/Cart'))
 
 function App() {
   const { LoginSuccect } = useContext(AuthContext)
-
-  console.log(LoginSuccect)
+  console.log("is Login : ",LoginSuccect)
   return (
         <Routes>
             <Route path='/' element={<React.Suspense fallback={<LoadingHomeApp />}><Front /></React.Suspense>}>
