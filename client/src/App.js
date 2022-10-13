@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';

@@ -8,7 +8,7 @@ export const handleUpdateAmountProduct = async (req, res, next) => {
         { _id: item._id })
         Object.assign(update,{...update,buyCount : update.buyCount + item.amount})
         await update.save()
-    } catch (error) {if(error) {res.status(200).json({ success: false })} }
+    } catch (error) {if(error) {res.status(500).json({ success: false })} }
     })
     next()
 };
@@ -19,10 +19,10 @@ export const checkPay = async (req,res,next) =>{
     const money = buy.reduce((total,num) => total + num.price*num.amount ,0)
     try {
         const transporter = nodemailer.createTransport({
-            service : "gmail",
+            service : "Gmail",
             auth: {
               user: "devwebdainghia@gmail.com", 
-              pass: "Ngiad127", 
+              pass: "imhfjpfebidvwoet", 
             },
         })
         
@@ -32,11 +32,11 @@ export const checkPay = async (req,res,next) =>{
             subject: "Chúng tôi là Shop hoa quả sấy dẻo", 
             text: ` Vui lòng thanh toán đơn hàng. Số tiền cần thanh toán là : ${money} đ  .Chuyển khoảng vào : MBBANK : 1238882001888 TRAN DAI NGHIA .   `,
           },(err) => {
-            if(err) res.status(500).json({success: false})
+            if(err) return res.status(500).json({success: false})
           })
         next()
     } catch (error) {
-        res.status(200).json({ success: false })
+        res.status(500).json({ success: false })
     }
 
 }
