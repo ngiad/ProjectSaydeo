@@ -59,6 +59,13 @@
 .itemProduct{
     width: 300px;
     margin: 4px 0px;
+    text-align: justify;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    cursor: default;
 }
 .MainListProductsAdmin .Product .updateProduct form button{
     width: 80px;

@@ -25,6 +25,10 @@ const Schema = new mongoose.Schema({
     SelectPay :{
         type : String,
         required : true
+    },
+    address :{
+        type : String,
+        required : true
     }
 },{timestamps : true})
 

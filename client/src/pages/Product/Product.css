@@ -7,7 +7,7 @@
     display: flex;
 }
 .contenerProduct img{
-    width: 300px;
+    max-width: 300px;
     border-radius: 4px;
 }
 
@@ -35,5 +35,9 @@
 
 .contenerProduct >div >button:hover{
     opacity: 0.8;
+}
+
+.CountBuy{
+    font-size: 13px;
 }
 

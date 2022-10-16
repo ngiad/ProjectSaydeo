@@ -9,6 +9,7 @@ const AdminProducts = () => {
     price: "",
     img: "",
     describe: "",
+    type : ""
   });
   const [Products, setProduct] = useState([]);
 
@@ -43,6 +44,7 @@ const AdminProducts = () => {
         price: "",
         img: "",
         describe: "",
+        type : ""
       });
     }
   };
@@ -52,6 +54,16 @@ const AdminProducts = () => {
       <div className="NewProduct">
         <h1>Thêm sản phẩm mới</h1>
         <form onSubmit={handleAddNewProduct}>
+        <label htmlFor="#title">Loại sản phẩm</label>
+          <input
+            type="text"
+            value={NewProduct.type}
+            onChange={(e) =>
+              SetNewProduct({ ...NewProduct, type: e.target.value })
+            }
+            id="title"
+            placeholder="   Nhập tên sản phẩm"
+          />
           <label htmlFor="#title">Tên sản phẩm</label>
           <input
             type="text"

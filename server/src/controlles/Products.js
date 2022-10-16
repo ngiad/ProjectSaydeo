@@ -10,9 +10,29 @@ export const getProducts = async (req,res)  =>{
 }
 
 export const getParamProduct = async(req,res) =>{
-    const {id} = req.params
+    const { id } = req.params
     try {
         const Product = await ProductModel.findOne({_id : id})
+        res.status(200).json(Product)
+    } catch (error) {
+        res.status(500).json({false : false})
+    }
+}
+
+export const getProductsLimit = async(req,res) =>{
+    const { limit } = req.query
+    try {
+        const Product = await ProductModel.find().limit(limit)
+        res.status(200).json(Product)
+    } catch (error) {
+        res.status(500).json({false : false})
+    }
+}
+
+export const getParamTypeProducts = async(req,res) =>{
+    const { type } = req.params
+    try {
+        const Product = await ProductModel.find({type : type})
         res.status(200).json(Product)
     } catch (error) {
         res.status(500).json({false : false})

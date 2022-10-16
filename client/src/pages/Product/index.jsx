@@ -37,29 +37,10 @@ const Product = () => {
         <img src={DataProduct.img} alt="itemimage" />
         <div>
           <h3>{DataProduct.title}</h3>
-          <p>{DataProduct.price} $</p>
+          <p className="CountBuy">Lượt mua : {DataProduct.buyCount}</p>
+          <p>{DataProduct.price} đ</p>
           <span>
-            {DataProduct.describe} Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Praesentium, earum similique! Corrupti deleniti
-            dolor alias eos corporis iusto laudantium! Doloribus corporis ea
-            modi amet beatae facilis commodi laborum ipsa deleniti. Deserunt
-            enim quibusdam aspernatur, saepe magnam perferendis ea quisquam
-            blanditiis rerum vitae nam temporibus dicta ducimus aliquid
-            laudantium minima explicabo natus omnis. Vero quam laborum,
-            molestiae quaerat suscipit consequuntur quos. Id molestias debitis
-            veritatis quia cum consequatur ratione quam! Ipsa quibusdam quisquam
-            alias eum, consectetur beatae. Officiis, iusto aliquam officia,
-            ullam, iure labore accusantium tempore recusandae quia suscipit
-            praesentium ipsam. A at alias adipisci id, hic voluptates eligendi.
-            Esse quasi, totam et soluta, perferendis voluptate necessitatibus ex
-            dolores atque ipsum, aliquid doloribus quis fugit corrupti magni quo
-            numquam. Ullam, harum. Odit, laboriosam ducimus quasi deleniti
-            asperiores pariatur cum aperiam ex illo assumenda fugit. Ipsum quasi
-            magnam modi eum. Aut sunt quasi corrupti voluptatum laboriosam ullam
-            ut eius. Sequi, at assumenda! Magnam doloremque modi molestiae
-            eveniet voluptatibus autem, sit ea eos soluta reprehenderit id dicta
-            doloribus aliquid velit eaque dolores voluptates ipsa minima omnis
-            possimus? Eveniet odit id fuga modi nemo?
+            {DataProduct.describe}
           </span>
           <button onClick={AddProductToCart}>Thêm vào giỏ</button>
         </div>

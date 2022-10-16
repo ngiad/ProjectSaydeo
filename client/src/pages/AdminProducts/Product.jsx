@@ -25,11 +25,12 @@ const Product = ({
   return (
     <div>
       <div className="Product">
-        <h4 className="itemProduct">Tên sản phẩm {item.title}</h4>
+        <h4 className="itemProduct">Tên sản phẩm : {item.title}</h4>
         <img src={item.img} alt="ảnh sản phẩm" />
         <p className="itemProduct">{item.price} đ</p>
         <p className="itemProduct">Mô tả : {item.describe}</p>
         <p className="itemProduct">ID : {item._id}</p>
+        <p className="itemProduct">Loại sản phẩm : {item.type}</p>
         <button
           className="UpdateProductBtn"
           onClick={() => {

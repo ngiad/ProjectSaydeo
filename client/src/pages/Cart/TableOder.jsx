@@ -13,6 +13,7 @@ const TableOder = ({CartProduct,handleOderCheck,handleOder}) => {
         buy : CartProduct,
         messenger : "",
         SelectPay :"",
+        address :""
     })
     async function SelectPay (e){
         e.preventDefault()
@@ -27,6 +28,7 @@ const TableOder = ({CartProduct,handleOderCheck,handleOder}) => {
                     buy : CartProduct,
                     messenger : "",
                     SelectPay :"", 
+                    address :""
                 })
                 handleOderCheck()
             }
@@ -47,6 +49,8 @@ const TableOder = ({CartProduct,handleOderCheck,handleOder}) => {
                     <input type="text" value={valueInputOder.phone} onChange={(e) => setValueInputOder({...valueInputOder,phone:e.target.value})}  placeholder=' Số điện thoại Người mua'  />
                     <label htmlFor="">Email Người mua</label>
                     <input type="email" value={valueInputOder.email} onChange={(e) => setValueInputOder({...valueInputOder,email:e.target.value})}  placeholder=' Email Người mua'/>
+                    <label htmlFor="">Địa chỉ nhận hàng</label>
+                    <input type="text" value={valueInputOder.address} onChange={(e) => setValueInputOder({...valueInputOder,address:e.target.value})}  placeholder=' Địa chỉ nhận hàng'/> 
                     <label htmlFor="">Lời nhắn</label>
                     <input type="text" value={valueInputOder.messenger} onChange={(e) => setValueInputOder({...valueInputOder,messenger:e.target.value})}  placeholder=' Lời nhắn'/> 
                 </form>
