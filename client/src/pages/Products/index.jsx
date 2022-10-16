@@ -50,7 +50,7 @@ const Products = () => {
                                 Navigate(`/products/${item._id}`)
                             }} key={index} class="grid-item">
                                     <img src={item.img} alt="itemimage" />
-                                    <p>{item.title}</p>
+                                    <p className='TitleProduct'>{item.title}</p>
                                     <p className='price'>{item.price}đ</p>
                             </div>
                         })

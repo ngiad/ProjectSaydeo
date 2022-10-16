@@ -21,6 +21,7 @@ const Product =  React.lazy(() => import('./pages/Product'))
 const Products =  React.lazy(() => import('./pages/Products'))
 const Search =  React.lazy(() => import('./pages/Search'))
 const Cart = React.lazy(() => import('./pages/Cart'))
+const PostsNews = React.lazy(() => import('./pages/PostsNews.jsx'))
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               <Route index path="products" element={<Products />} />
               <Route index path="guide" element={<Guide />} />
               <Route index path="news" element={<News />} />
+              <Route index path="news/:id" element={<PostsNews />} />
               <Route index path="contact" element={<Contact />} />
               <Route index path="/:search" element={<Search />} />
               <Route index path="products/:id" element={<Product />} />

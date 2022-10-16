@@ -2,7 +2,9 @@ import React from 'react'
 import './Footer.css'
 import { BsFacebook } from 'react-icons/bs';
 import { AiFillPhone } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 const Footer = () => {
+  const Navigate = useNavigate()
   return (
     <div className='Footer'>
         <div class="grid-container">
@@ -18,7 +20,7 @@ const Footer = () => {
           </div>
           <div class="grid-item">
             <h2>CHÍNH SÁCH HỖ TRỢ</h2>
-            <ul className='ListCt_2'>
+            <ul onClick={()=> Navigate("/guide")} className='ListCt_2'>
               <li>Chính sách thanh toán</li>
               <li>Chính sánh vận chuyển</li>
               <li>Điều khoản dịch vụ</li>
@@ -30,7 +32,7 @@ const Footer = () => {
               <h2>LIÊN HỆ</h2>
               <ul className='contact'>
                 <li><AiFillPhone /> : 0962673018</li>
-                <li><BsFacebook /> : <a href='https://www.facebook.com/traicaysaydeovietnam/'>Thế giới Trái cây sấy dẻo</a> </li>
+                <li><BsFacebook /> : <a  target="_blank" rel="noreferrer"  href='https://www.facebook.com/traicaysaydeovietnam/'>Thế giới Trái cây sấy dẻo</a> </li>
               </ul>
           </div>  
         </div>

@@ -9,6 +9,16 @@ export const getNews = async(req,res) => {
     }
 }
 
+export const getNewsId = async(req,res) =>{
+    const { id } = req.params
+    try {
+        const News = await NewsModel.findOne({_id : id})
+        res.status(200).json(News)
+    } catch (error) {
+        res.status(500).json({false : false})
+    }
+}   
+
 export const CreateNews = async(req,res) =>{
     const NewNews = req.body
     try {

@@ -19,8 +19,8 @@
     left: 0;
 }
 
-.left{
-    flex: 3;
+.mainContact  .left{
+    flex: 4;
 }
 .mainContact .contener .left h2{
     margin: 24px 0;

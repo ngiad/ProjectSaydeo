@@ -253,6 +253,16 @@
     cursor: default;
   }
 
+  .titleNewsHome{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    cursor: default;
+    text-align: center;
+    margin: 4px 0;
+  }
+
   .contenerNewsHome{
     max-width: 1140px;
     margin: 0 auto;
