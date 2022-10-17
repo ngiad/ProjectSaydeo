@@ -27,7 +27,6 @@ const News = () => {
     Navigate(`/news/${id}`);
   };
 
-  console.log(Newss);
   return (
     <div className="mainNews">
       <div className="NavNavigate">

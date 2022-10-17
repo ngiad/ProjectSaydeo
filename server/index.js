@@ -7,6 +7,8 @@ import LoginRouter from "./src/Router/Login.js";
 import NewsRouter from "./src/Router/News.js";
 import OderRouter from "./src/Router/Oder.js";
 import ContactRouter from "./src/Router/Contact.js";
+import MesengeRouter from "./src/Router/Messenger.js";
+
 
 const app = express()
 const URL =   "mongodb+srv://Ngiad:Ngiad001@cluster0.2ts8aja.mongodb.net"
@@ -20,6 +22,8 @@ app.use("/login",LoginRouter)
 app.use("/news",NewsRouter)
 app.use("/oder",OderRouter)
 app.use("/contact",ContactRouter)
+app.use("/messenger",MesengeRouter)
+
 
 mongoose.connect(URL,{useNewUrlParser : true})
 .then(() =>{

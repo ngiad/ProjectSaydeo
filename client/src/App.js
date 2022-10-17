@@ -6,6 +6,7 @@ import LoadingHomeApp from './Components/LoadingHomeApp.jsx';
 import { AuthContext } from './contexts/AuthContext';
 import Admin from './layout/Admin/Admin';
 
+
 const Front = React.lazy(() => import("./layout/Front/Front"))
 const About =  React.lazy(() => import('./pages/About'))
 const AdminHomePage =  React.lazy(() => import('./pages/AdminHomePage'))
@@ -26,7 +27,6 @@ const PostsNews = React.lazy(() => import('./pages/PostsNews.jsx'))
 
 function App() {
   const { LoginSuccect } = useContext(AuthContext)
-  console.log("is Login : ",LoginSuccect)
   return (
         <Routes>
             <Route path='/' element={<React.Suspense fallback={<LoadingHomeApp />}><Front /></React.Suspense>}>
