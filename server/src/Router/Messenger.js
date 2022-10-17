@@ -7,6 +7,7 @@ import { Server } from "socket.io"
 const MesengeRouter = express()
 const server = http.createServer(MesengeRouter)
 
+
 const socketIo = new Server(server,{
     cors :{
         origin: "*",
