@@ -28,41 +28,11 @@ app.use("/contact",ContactRouter)
 
 
 
-import * as http from "http"
-import { Server } from "socket.io"
-
-
-
 mongoose.connect(URL,{useNewUrlParser : true})
 .then(() =>{
     app.listen(PORT,() =>{
         console.log("server iss runing ...", PORT)
     })
-
-    var server = http.createServer(app).listen(7001, function(){
-        console.log("Express server listening on port " + 7001);
-      });
-            
-    const socketIo = new Server(server,{
-        cors :{
-            origin: "*",
-        }
-    })
-    
-    socketIo.on("connection",(res) =>{
-        console.log("connection :: ",res.id);
-
-        res.emit("getId", res.id)
-    
-        res.on("sendDataClient",(req) =>{
-            socketIo.to(req.id).emit(req)
-        })
-    
-        res.on("disconnect",() =>{
-            console.log("Client disconnected");
-        })
-    })
-    
 })
 .catch((e) =>{
     console.log("connect mongodb Fales  : ",e)

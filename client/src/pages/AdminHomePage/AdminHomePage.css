@@ -26,3 +26,13 @@
     background-color: red;
     color: #fff;
 }
+
+.AdminHome{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.AdminHome h1{
+    margin: 24px;
+    text-align: center;
+}
