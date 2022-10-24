@@ -42,7 +42,7 @@ export const getParamTypeProducts = async(req,res) =>{
 export const QueryListProducts = async (req,res) =>{
     const {title} = req.query
     try {
-        const Product = await ProductModel.find({title : title})
+        const Product = await ProductModel.find({title : {$regex : title}})
         res.status(200).json(Product)
     } catch (error) {
         res.status(500).json({false : false})
