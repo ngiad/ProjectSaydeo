@@ -37,6 +37,7 @@ export const UpdateOde = async (req, res) => {
 };
 
 export const DeleteOde = async (req, res) => {
+  console.log("Chạy vào đây");
   const { _id } = req.body;
   try {
     const Ode = await OderModel.findById({ _id: _id }).exec();

@@ -74,7 +74,6 @@ export const UpdateProduct = async(req,res) =>{
 }
 
 export const DeleteProduct = async(req,res) =>{
-    //console.log("đã chạy vào đây",req.body,req.headers);
     const {_id} = req.body
     try {
         const Product = await ProductModel.findById({_id : _id}).exec()
